@@ -4,6 +4,7 @@ import { successResponse } from "../../../utils/response/success.response.js";
 import * as dbService from '../../../db/db.service.js';
 import { compareHash, generateHash } from "../../../utils/security/hash.security.js";
 import cloudinary from "../../../utils/multer/cloudinary.js";
+import { decodeEncryption, generateEncryption } from "../../../utils/security/encryption.js";
 
 export const profile = (asyncHandler(async (req, res, next) => {
     const user = await dbService.findOne({
@@ -11,24 +12,36 @@ export const profile = (asyncHandler(async (req, res, next) => {
         filter: { _id: req.user._id },
         select: "firstName lastName email gender DOB role isConfirmed phone",
     });
-    // user.phone = decodeEncryption({ cipherText: user.phone })
-    return successResponse({ res, message: "Profile page", data: { user } });
+
+    const decryptedPhone = decodeEncryption({ cipherText: user.phone });
+
+    const userProfile = {
+        ...user.toObject(),
+        phone: decryptedPhone
+    };
+    return successResponse({ res, message: "Profile page", data: { userProfile } });
 }));
 
 export const updateUser = (asyncHandler(async (req, res, next) => {
-
-    if (req.user.phone) {
-        req.body.phone = generateEncryption({ plainText: req.user.phone })
+    if (req.body.phone) {
+        req.body.phone = generateEncryption({ plainText: req.body.phone }).toString();
     }
-
-    const user = await dbService.findByIdAndUpdate({
+    
+    const updatedUser = await dbService.findByIdAndUpdate({
         model: userModel,
         id: req.user._id,
         data: req.body,
         options: { new: true }
-    })
+    });
 
-    return successResponse({ res, message: "success update profile", data: { user } });
+    const decryptedPhone = updatedUser.phone ? decodeEncryption({ cipherText: updatedUser.phone }) : null;
+
+    const userProfile = {
+        ...updatedUser.toObject(),
+        phone: decryptedPhone,
+    };
+
+    return successResponse({ res, message: "Profile updated successfully", data: { userProfile } });
 }));
 
 export const getUserProfile = asyncHandler(async (req, res) => {
@@ -38,13 +51,16 @@ export const getUserProfile = asyncHandler(async (req, res) => {
         select: "firstName lastName phone profilePic coverPic ",
     })
 
-    if (!user) {
-        return next(new Error('User not found', { cause: 404 }))
-    }
+    const decryptedPhone = decodeEncryption({ cipherText: user.phone });
+
+    const userProfile = {
+        ...user.toObject(),
+        phone: decryptedPhone
+    };
 
     res.status(200).json({
         success: true,
-        data: { user }
+        data: { userProfile }
     });
 });
 

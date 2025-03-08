@@ -4,7 +4,7 @@ export const generateEncryption = ({
     plainText = '',
     signature = process.env.ENCRYPTION_SIGNATURE,
 } = {}) => {
-    const encryption = CryptoJS.AES.encrypt(plainText, signature);
+    const encryption = CryptoJS.AES.encrypt(plainText, signature).toString();
     return encryption;
 };
 

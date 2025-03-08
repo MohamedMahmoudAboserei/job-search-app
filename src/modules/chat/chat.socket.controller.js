@@ -2,8 +2,10 @@ import { Server } from 'socket.io';
 import { logoutSocket, registerSocket } from './service/chat.auth.service.js';
 import { sendMessage } from './service/message.service.js';
 
+let io = undefined;
+
 export const runIo = async (httpServer) => {
-    const io = new Server(httpServer, {
+    io = new Server(httpServer, {
         cors: '*'
     });
 
@@ -13,4 +15,8 @@ export const runIo = async (httpServer) => {
         await sendMessage(socket);
         await logoutSocket(socket);
     })
+}
+
+export const getIo = (io) => {
+    return io;
 }
