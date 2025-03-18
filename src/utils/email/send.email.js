@@ -28,7 +28,7 @@ export const sendEmail = async ({
         subject,
         text,
         html, 
-        attachments,
+        attachments
     });
 
     return info;

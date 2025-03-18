@@ -9,8 +9,11 @@ import { globalErrorHandling } from "./utils/response/error.response.js";
 import path from 'node:path';
 import { createHandler } from "graphql-http/lib/use/express";
 import { schema } from "./modules/modules.schema.js";
+import cors from 'cors';
 
 const bootstrap = async (app, express) => {
+    app.use(cors());
+
     app.use(express.json());
     app.use("/upload", express.static(path.resolve("uploads")));
 

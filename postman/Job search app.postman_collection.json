@@ -2,6 +2,7 @@
 	"info": {
 		"_postman_id": "1832ad91-56b0-4f39-af0d-816124858187",
 		"name": "Job search app",
+		"description": "**Base URL:** [http://ec2-51-20-24-67.eu-north-1.compute.amazonaws.com](http://ec2-51-20-24-67.eu-north-1.compute.amazonaws.com/EndFragment)\n\n**admin:** system token\n\n**companyHR:** companyHR token\n\n**companyOwner:** companyOwner token",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "36616987"
 	},
@@ -16,7 +17,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"firstName\": \"Mohamed\",\r\n    \"lastName\": \"Mahmoud\",\r\n    \"email\": \"mmasere3@gmail.com\",\r\n    \"password\": \"@password123M\",\r\n    \"confirmPassword\": \"@password123M\",\r\n    \"phone\": \"+201010774346\",\r\n    \"gender\": \"male\",\r\n    \"DOB\": \"2000-01-01\"\r\n    \r\n}",
+							"raw": "{\r\n    \"firstName\": \"Mohamed\",\r\n    \"lastName\": \"Mahmoud\",\r\n    \"email\": \"m.m.abosere@gmail.com\",\r\n    \"password\": \"@password123M\",\r\n    \"confirmPassword\": \"@password123M\",\r\n    \"phone\": \"+201010774346\",\r\n    \"gender\": \"male\",\r\n    \"DOB\": \"2000-01-01\"\r\n    \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -24,14 +25,11 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/auth/signup",
-							"protocol": "http",
+							"raw": "{{BaseURL}}auth/signup",
 							"host": [
-								"localhost"
+								"{{BaseURL}}auth"
 							],
-							"port": "3000",
 							"path": [
-								"auth",
 								"signup"
 							]
 						}
@@ -45,7 +43,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"email\": \"mmasere3@gmail.com\",\r\n  \"otp\": \"5302\"\r\n}",
+							"raw": "{\r\n  \"email\": \"m.m.abosere@gmail.com\",\r\n  \"otp\": \"5730\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -53,12 +51,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/auth/confirm-email",
-							"protocol": "http",
+							"raw": "{{BaseURL}}/auth/confirm-email",
 							"host": [
-								"localhost"
+								"{{BaseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"auth",
 								"confirm-email"
@@ -82,12 +78,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/auth/resend-otp",
-							"protocol": "http",
+							"raw": "{{BaseURL}}/auth/resend-otp",
 							"host": [
-								"localhost"
+								"{{BaseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"auth",
 								"resend-otp"
@@ -103,7 +97,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"email\": \"m.m.abosere@gmail.com\",\r\n  \"password\": \"@password123S\"\r\n}",
+							"raw": "{\r\n  \"email\": \"m.m.abosere@gmail.com\",\r\n  \"password\": \"@password123M\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -111,12 +105,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/auth/login",
-							"protocol": "http",
+							"raw": "{{BaseURL}}/auth/login",
 							"host": [
-								"localhost"
+								"{{BaseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"auth",
 								"login"
@@ -140,12 +132,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/auth/loginWithGmail",
-							"protocol": "http",
+							"raw": "{{BaseURL}}/auth/loginWithGmail",
 							"host": [
-								"localhost"
+								"{{BaseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"auth",
 								"loginWithGmail"
@@ -175,12 +165,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/auth/forget-password",
-							"protocol": "http",
+							"raw": "{{BaseURL}}/auth/forget-password",
 							"host": [
-								"localhost"
+								"{{BaseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"auth",
 								"forget-password"
@@ -210,12 +198,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/auth/reset-password",
-							"protocol": "http",
+							"raw": "{{BaseURL}}/auth/reset-password",
 							"host": [
-								"localhost"
+								"{{BaseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"auth",
 								"reset-password"
@@ -236,12 +222,10 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:3000/auth/refresh-token",
-							"protocol": "http",
+							"raw": "{{BaseURL}}/auth/refresh-token",
 							"host": [
-								"localhost"
+								"{{BaseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"auth",
 								"refresh-token"
@@ -267,12 +251,10 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:3000/user/profile",
-							"protocol": "http",
+							"raw": "{{BaseURL}}/user/profile",
 							"host": [
-								"localhost"
+								"{{BaseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"user",
 								"profile"
@@ -301,7 +283,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"lastName\": \"ali\"\r\n}",
+							"raw": "{\r\n    \"phone\": \"+201010774424\",\r\n    \"firstName\": \"Ahmed\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -309,12 +291,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/user/profile/update-profile",
-							"protocol": "http",
+							"raw": "{{BaseURL}}/user/profile/update-profile",
 							"host": [
-								"localhost"
+								"{{BaseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"user",
 								"profile",
@@ -343,12 +323,10 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:3000/user/profile/users/67c3134a0f24309f35394f52",
-							"protocol": "http",
+							"raw": "{{BaseURL}}/user/profile/users/67c3134a0f24309f35394f52",
 							"host": [
-								"localhost"
+								"{{BaseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"user",
 								"profile",
@@ -387,12 +365,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/user/profile/update-password",
-							"protocol": "http",
+							"raw": "{{BaseURL}}/user/profile/update-password",
 							"host": [
-								"localhost"
+								"{{BaseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"user",
 								"profile",
@@ -431,12 +407,10 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3000/user/profile/upload/profile-pic",
-							"protocol": "http",
+							"raw": "{{BaseURL}}/user/profile/upload/profile-pic",
 							"host": [
-								"localhost"
+								"{{BaseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"user",
 								"profile",
@@ -469,12 +443,10 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3000/user/profile/upload/cover-pic",
-							"protocol": "http",
+							"raw": "{{BaseURL}}/user/profile/upload/cover-pic",
 							"host": [
-								"localhost"
+								"{{BaseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"user",
 								"profile",
@@ -508,12 +480,10 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3000/user/profile/upload/delete-profile-pic",
-							"protocol": "http",
+							"raw": "{{BaseURL}}/user/profile/upload/delete-profile-pic",
 							"host": [
-								"localhost"
+								"{{BaseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"user",
 								"profile",
@@ -547,12 +517,10 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3000/user/profile/upload/delete-cover-pic",
-							"protocol": "http",
+							"raw": "{{BaseURL}}/user/profile/upload/delete-cover-pic",
 							"host": [
-								"localhost"
+								"{{BaseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"user",
 								"profile",
@@ -586,12 +554,10 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3000/user/profile/delete-account",
-							"protocol": "http",
+							"raw": "{{BaseURL}}/user/profile/delete-account",
 							"host": [
-								"localhost"
+								"{{BaseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"user",
 								"profile",
@@ -618,12 +584,10 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:3000/admin/user/ban/67c2ed4a59bb06188de3c7d7",
-							"protocol": "http",
+							"raw": "{{BaseURL}}/admin/user/ban/67c2ed4a59bb06188de3c7d7",
 							"host": [
-								"localhost"
+								"{{BaseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"admin",
 								"user",
@@ -646,12 +610,10 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:3000/admin/company/ban/67c2ed4a59bb06188de3c7d7",
-							"protocol": "http",
+							"raw": "{{BaseURL}}/admin/company/ban/67c2ed4a59bb06188de3c7d7",
 							"host": [
-								"localhost"
+								"{{BaseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"admin",
 								"company",
@@ -674,12 +636,10 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:3000/admin/company/approve/67c2ed4a59bb06188de3c7d7",
-							"protocol": "http",
+							"raw": "{{BaseURL}}/admin/company/approve/67c2ed4a59bb06188de3c7d7",
 							"host": [
-								"localhost"
+								"{{BaseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"admin",
 								"company",
@@ -716,12 +676,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/company/add-company",
-							"protocol": "http",
+							"raw": "{{BaseURL}}/company/add-company",
 							"host": [
-								"localhost"
+								"{{BaseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"company",
 								"add-company"
@@ -751,12 +709,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/company/update-company/67c3f51b498321a2d18d17fe",
-							"protocol": "http",
+							"raw": "{{BaseURL}}/company/update-company/67c3f51b498321a2d18d17fe",
 							"host": [
-								"localhost"
+								"{{BaseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"company",
 								"update-company",
@@ -787,12 +743,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/company/delete-company/67c3f51b498321a2d18d17fe",
-							"protocol": "http",
+							"raw": "{{BaseURL}}/company/delete-company/67c3f51b498321a2d18d17fe",
 							"host": [
-								"localhost"
+								"{{BaseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"company",
 								"delete-company",
@@ -826,12 +780,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/company/jobs/67c3f9d740caa94b70b7bd09",
-							"protocol": "http",
+							"raw": "{{BaseURL}}/company/jobs/67c3f9d740caa94b70b7bd09",
 							"host": [
-								"localhost"
+								"{{BaseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"company",
 								"jobs",
@@ -865,12 +817,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/company/search?name=Tech",
-							"protocol": "http",
+							"raw": "{{BaseURL}}/company/search?name=Tech",
 							"host": [
-								"localhost"
+								"{{BaseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"company",
 								"search"
@@ -907,12 +857,10 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3000/company/upload/logo-pic/67c3f9d740caa94b70b7bd09",
-							"protocol": "http",
+							"raw": "{{BaseURL}}/company/upload/logo-pic/67c3f9d740caa94b70b7bd09",
 							"host": [
-								"localhost"
+								"{{BaseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"company",
 								"upload",
@@ -945,12 +893,10 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3000/company/upload/cover-pic/67c3f9d740caa94b70b7bd09",
-							"protocol": "http",
+							"raw": "{{BaseURL}}/company/upload/cover-pic/67c3f9d740caa94b70b7bd09",
 							"host": [
-								"localhost"
+								"{{BaseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"company",
 								"upload",
@@ -984,12 +930,10 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3000/company/delete/logo-pic/67c3f9d740caa94b70b7bd09",
-							"protocol": "http",
+							"raw": "{{BaseURL}}/company/delete/logo-pic/67c3f9d740caa94b70b7bd09",
 							"host": [
-								"localhost"
+								"{{BaseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"company",
 								"delete",
@@ -1023,12 +967,10 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3000/company/delete/cover-pic/67c3f9d740caa94b70b7bd09",
-							"protocol": "http",
+							"raw": "{{BaseURL}}/company/delete/cover-pic/67c3f9d740caa94b70b7bd09",
 							"host": [
-								"localhost"
+								"{{BaseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"company",
 								"delete",
@@ -1065,12 +1007,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/job/add-job",
-							"protocol": "http",
+							"raw": "{{BaseURL}}/job/add-job",
 							"host": [
-								"localhost"
+								"{{BaseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"job",
 								"add-job"
@@ -1100,12 +1040,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/job/update-job/67c4d443ffdf426c8d50e016",
-							"protocol": "http",
+							"raw": "{{BaseURL}}/job/update-job/67c4d443ffdf426c8d50e016",
 							"host": [
-								"localhost"
+								"{{BaseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"job",
 								"update-job",
@@ -1136,12 +1074,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/job/update-job/67c4d443ffdf426c8d50e016",
-							"protocol": "http",
+							"raw": "{{BaseURL}}/job/update-job/67c4d443ffdf426c8d50e016",
 							"host": [
-								"localhost"
+								"{{BaseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"job",
 								"update-job",
@@ -1175,12 +1111,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/job/get-job?companyId=67c3f51b498321a2d18d17fe&companyName=Tech Solutions&jobId=67c4b970751572560ae71b89&limit=1&sort",
-							"protocol": "http",
+							"raw": "{{BaseURL}}/job/get-job?companyId=67c3f51b498321a2d18d17fe&companyName=Tech Solutions&jobId=67c4b970751572560ae71b89&limit=1&sort",
 							"host": [
-								"localhost"
+								"{{BaseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"job",
 								"get-job"
@@ -1235,12 +1169,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/job/get-job?workingTime=part-time&jobLocation=remotely&seniorityLevel=Junior&jobTitle=Frontend Developer&technicalSkills=React.js&skip&limit&sort",
-							"protocol": "http",
+							"raw": "{{BaseURL}}/job/get-job?workingTime=part-time&jobLocation=remotely&seniorityLevel=Junior&jobTitle=Frontend Developer&technicalSkills=React.js&skip&limit&sort",
 							"host": [
-								"localhost"
+								"{{BaseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"job",
 								"get-job"
@@ -1307,12 +1239,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/job/applications/67c4b970751572560ae71b89",
-							"protocol": "http",
+							"raw": "{{BaseURL}}/job/applications/67c4b970751572560ae71b89",
 							"host": [
-								"localhost"
+								"{{BaseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"job",
 								"applications",
@@ -1343,16 +1273,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/job/apply-job/67c4b970751572560ae71b89",
-							"protocol": "http",
+							"raw": "{{BaseURL}}/job/apply-job/67c65931f7b2ec399c4f28e1",
 							"host": [
-								"localhost"
+								"{{BaseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"job",
 								"apply-job",
-								"67c4b970751572560ae71b89"
+								"67c65931f7b2ec399c4f28e1"
 							]
 						}
 					},
@@ -1379,12 +1307,10 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/job/application-status/67c507667f32e80da3417942",
-							"protocol": "http",
+							"raw": "{{BaseURL}}/job/application-status/67c507667f32e80da3417942",
 							"host": [
-								"localhost"
+								"{{BaseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"job",
 								"application-status",
@@ -1411,12 +1337,10 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:3000/chat/history-chat/67c3134a0f24309f35394f52",
-							"protocol": "http",
+							"raw": "{{BaseURL}}/chat/history-chat/67c3134a0f24309f35394f52",
 							"host": [
-								"localhost"
+								"{{BaseURL}}"
 							],
-							"port": "3000",
 							"path": [
 								"chat",
 								"history-chat",
@@ -1438,6 +1362,11 @@
 		{
 			"key": "companyHR",
 			"value": "companyHR eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YzMxMzRhMGYyNDMwOWYzNTM5NGY1MiIsImlzTG9nZ2VkSW4iOnRydWUsImlhdCI6MTc0MDk2NjU5OSwiZXhwIjoxNzQwOTcwMTk5fQ.-_CbkpHNRxo_wK7vPMG7imqWpxtSB0Mah0ahpJ4iH3Q",
+			"type": "default"
+		},
+		{
+			"key": "BaseURL",
+			"value": "http://ec2-51-20-24-67.eu-north-1.compute.amazonaws.com/",
 			"type": "default"
 		}
 	]

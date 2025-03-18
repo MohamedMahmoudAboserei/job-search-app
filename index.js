@@ -7,7 +7,7 @@ import { runIo } from './src/modules/chat/chat.socket.controller.js';
 dotenv.config({ path: path.resolve('./src/config/.env') });
 
 const app = express();
-const port = process.env.PORT;
+const port = process.env.PORT || 5000;
 
 bootstrap(app, express);
 
