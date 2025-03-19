@@ -1,6 +1,8 @@
+// Import files
 import Joi from "joi";
 import { generalFields } from "../../middleware/validation.middleware.js";
 
+// Add company Validation Schema
 export const addCompany = Joi.object().keys({
     companyName: generalFields.companyName.required(),
     companyEmail: generalFields.companyEmail.required(),
@@ -10,6 +12,7 @@ export const addCompany = Joi.object().keys({
     numberOfEmployees: generalFields.numberOfEmployees.required()
 }).required();
 
+// Update company Validation Schema
 export const updateCompany = Joi.object().keys({
     companyId: Joi.string(),
     companyName: generalFields.companyName,

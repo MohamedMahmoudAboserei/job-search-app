@@ -1,3 +1,4 @@
+// Create
 export const create = async ({ model, data = {} } = {}) => {
     const document = await model.create(data);
     return document;

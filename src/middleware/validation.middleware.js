@@ -1,3 +1,4 @@
+// Import files
 import Joi from "joi";
 import { Types } from "mongoose";
 import { genderTypes } from "../utils/types/gender.js";
@@ -6,10 +7,14 @@ import { workingTimeTypes } from "../utils/types/workingTime.js";
 import { jobLocationTypes } from "../utils/types/jobLocation.js";
 import { seniorityLevelTypes } from "../utils/types/seniorityLevel.js";
 
+// Custom validator for MongoDB ObjectId
 const checkObjectId = (value, helper) => {
-    return Types.ObjectId.isValid(value) ? true : helper.error('In-valid objectId');
+    return Types.ObjectId.isValid(value)
+        ? true
+        : helper.error('In-valid objectId');
 }
 
+// Validation schema definitions
 export const generalFields = {
     firstName: Joi.string().min(2).max(25).trim(),
     lastName: Joi.string().min(2).max(25).trim(),
@@ -44,13 +49,22 @@ export const generalFields = {
     softSkills: Joi.string().min(2).trim(),
 };
 
+// Validation middleware generator
 export const validation = (schema) => {
     return (req, res, next) => {
+        // Combine data from body, params, and query
         const inputDate = { ...req.body, ...req.params, ...req.query };
+
+        // Validate all fields (not aborting early)
         const validationResult = schema.validate(inputDate, { aboutEarly: false });
         if (validationResult.error) {
-            return res.status(400).json({ message: "Validation error", details: validationResult.error.details });
+            // Return structured validation errors
+            return res.status(400).json({
+                message: "Validation error",
+                details: validationResult.error.details
+            });
         }
+        // Proceed to next middleware if validation passes
         return next();
     }
 }

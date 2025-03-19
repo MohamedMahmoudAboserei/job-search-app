@@ -1,5 +1,7 @@
+// Import files
 import CryptoJS from "crypto-js";
 
+// Function to encrypt a plain text string using AES encryption
 export const generateEncryption = ({
     plainText = '',
     signature = process.env.ENCRYPTION_SIGNATURE,
@@ -8,6 +10,7 @@ export const generateEncryption = ({
     return encryption;
 };
 
+// Function to decrypt an encrypted string using AES decryption
 export const decodeEncryption = ({
     cipherText = '',
     signature = process.env.ENCRYPTION_SIGNATURE,

@@ -1,5 +1,7 @@
+// Import files
 import mongoose from "mongoose";
 
+// Connect DB using mongoose
 const connectDB = async () => {
     await mongoose.connect(process.env.DB_URL, {
         useNewUrlParser: true,
